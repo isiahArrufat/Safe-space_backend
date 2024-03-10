@@ -6,6 +6,8 @@ It includes authroutes for Register, Login, Logout, and checking Authentication
 
 This will allow you to setup Protected routes based on user being Logged In on the Client Side
 
+### Security Videos
+
 Here are videos to understand some of the technology used in this auth backend to prevent certain security risks. It is not comprehensive but it is a start to understanding all that goes into securing a website
 
 - [Cookies](https://www.youtube.com/watch?v=s04Vjlcgwco)
