@@ -1,8 +1,7 @@
-# EXPRESS SERVER with Database Configuration
+# EXPRESS SERVER with Authentication
 
-- `clone`
-- `cd` into project
-- type in terminal `git remote remove origin`
-- connect repo to a New Github repository that you create in your repo
+This app handles JWT, httpOnlyCookies and CSURF protection
 
-**Make sure to change the `.env.example` file to .env and edit correctly.**
+It includes authroutes for Register, Login, Logout, and checking Authentication
+
+This will allow you to setup Protected routes based on user being Logged In on the Client Side
