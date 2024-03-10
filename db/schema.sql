@@ -1,7 +1,22 @@
 -- db/schema.sql
-DROP DATABASE IF EXISTS -- database name
-CREATE DATABASE -- database name
+DROP DATABASE IF EXISTS authdb;
 
-\c -- database name
+CREATE DATABASE authdb;
+
+
+\c authdb
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+\c authdb
 
 
