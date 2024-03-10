@@ -8,8 +8,7 @@ This will allow you to setup Protected routes based on user being Logged In on t
 
 Here are videos to understand some of the technology used in this auth backend to prevent certain security risks. It is not comprehensive but it is a start to understanding all that goes into securing a website
 
-[HTTPOnlyCookie](httpOnly Cookies
-https://www.youtube.com/watch?v=d8liHExs5tc)
+[HTTPOnlyCookie](https://www.youtube.com/watch?v=ROg1p0UZL0M)
 
 [JWT - JSON Web Tokens](https://www.youtube.com/watch?v=P2CPd9ynFLg)
 
