@@ -18,4 +18,4 @@ Here are videos to understand some of the technology used in this auth backend t
 
 - [CSRF - Cross Site Resource Forgery](https://www.youtube.com/watch?v=eWEgUcHPle0)
 
-[XSS - Cross Site Scripting](https://www.youtube.com/watch?v=EoaDgUgS6QA)
+- [XSS - Cross Site Scripting](https://www.youtube.com/watch?v=EoaDgUgS6QA)
