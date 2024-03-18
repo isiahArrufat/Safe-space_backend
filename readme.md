@@ -4,7 +4,7 @@
 
 This auth-express-login project uses `httpOnly cookies` to securely store `JWTs`, protecting them from being accessed by client-side scripts and thus mitigating `XSS` risks. `CSRF` protection is implemented using the csurf middleware, which requires a valid `CSRF token` for state-changing requests, preventing `CSRF attacks`. Using `httpOnly cookies` is a step towards securing your application against such vulnerabilities. There are videos listed below that speak to each technology.
 
-This app includes authroutes for Register, Login, Logout, and checking Authentication all handled in an `authController`
+This app includes authroutes for Register, Login, Logout, and checking Authentication all handled in the `controllers/authController.js` file.
 
 This will allow you to setup Protected routes on the front end, based on a user being Logged In on the Client Side
 
