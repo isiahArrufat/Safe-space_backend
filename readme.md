@@ -51,19 +51,19 @@ Here are definitions and videos to understand some of the technology used in thi
 
 The `bcrypt` Node.js package provides a secure way to handle passwords by ensuring that the actual passwords are never stored in the database in plain text, enhancing the security of your application against password theft.
 
-**_Hashing Passwords:_** When a new user registers, their password is hashed before being stored in the database. This ensures that even if the database is compromised, the actual passwords are not exposed.
+_Hashing Passwords:_ When a new user registers, their password is hashed before being stored in the database. This ensures that even if the database is compromised, the actual passwords are not exposed.
 
-**_Comparing Passwords:_** During login, bcrypt compares the submitted password with the hashed password stored in the database. This comparison is done securely to prevent timing attacks.
+_Comparing Passwords:_ During login, bcrypt compares the submitted password with the hashed password stored in the database. This comparison is done securely to prevent timing attacks.
 
-**_What Are Saltrounds?_**
+_What Are Saltrounds?_
 
 `SaltRounds` is a term used in the context of hashing passwords with bcrypt, a password-hashing function. It refers to the cost factor that controls how much time is needed to calculate a single bcrypt hash. The higher the saltRounds, the longer it takes to generate the hash, making the hashing process more resistant to brute-force attacks. `_The recommended default is 10_`
 
-**_Purpose_**
+_Purpose_
 
 To introduce a significant work factor in the hashing process. As computing power increases over time, increasing the saltRounds can help maintain the security of hashed passwords by making them more difficult and time-consuming to crack.
 
-**_How it Works_**
+_How it Works_
 
 `saltRounds` determines how many times the hashing algorithm is executed. Essentially, the output of one round becomes the input of the next, and this process repeats for as many times as specified by saltRounds. This repeated hashing helps protect against rainbow table attacks and brute-force attacks.
 
