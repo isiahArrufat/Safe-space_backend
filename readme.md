@@ -43,7 +43,7 @@ VALUES('jd', '$2b$10$feEQlH1icpSsQo8v2E.ql.ILgoQzXtNEWqqBEgcBDB4P/FzB2Ws16', 'jd
 - run db:seed again
 - test by logging in on the frontend
 
-### Security Explanations
+## Security Explanations
 
 Here are definitions and videos to understand some of the technology used in this auth backend to prevent certain security risks. It is not comprehensive but it is a start to understanding some of what goes into securing a website
 
