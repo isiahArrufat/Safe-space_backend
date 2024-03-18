@@ -89,7 +89,7 @@ A flag added to cookies that instructs the browser to prevent client-side script
 
 A security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. These scripts can steal user data, impersonate the user, or perform actions on behalf of the user without their consent.
 
-[XSS - Cross Site Scripting Video](https://www.youtube.com/watch?v=EoaDgUgS6QA)
+[XSS - Cross Site Scripting Video](https://www.youtube.com/watch?v=EoaDgUgS6QA) - the first 8 1/2 to 11 minutes is good.
 
 <hr />
 
@@ -107,7 +107,7 @@ A compact, URL-safe means of representing claims to be transferred between two p
 
 [JWT - JSON Web Token Video](https://www.youtube.com/watch?v=P2CPd9ynFLg)
 
-[JWT Docs](https://jwt.io) - these docs are great and pretty straightforward to read
+[JWT Docs](https://jwt.io) - these docs are great and pretty straightforward to read.
 
 <hr />
 
