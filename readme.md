@@ -107,6 +107,8 @@ A compact, URL-safe means of representing claims to be transferred between two p
 
 [JWT - JSON Web Token Video](https://www.youtube.com/watch?v=P2CPd9ynFLg)
 
+[JWT Docs](https://jwt.io) - these docs are great and pretty straightforward to read
+
 <hr />
 
 ### Go to Frontend
