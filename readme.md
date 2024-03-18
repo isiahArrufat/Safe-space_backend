@@ -57,4 +57,4 @@ A compact, URL-safe means of representing claims to be transferred between two p
 
 ### Go to Frontend
 
-Also consult [Auth-Express-Frontend Readme](https://github.com/10-3-pursuit/auth-react-login) to see what security precautions have been put into place as well as auth routes for the login and register.
+Also consult [Auth-Express-Frontend Readme](https://github.com/10-3-pursuit/auth-react-login) to see what security precautions have been put into place using a `ProtectedRoute` as well as sending `XSRF Tokens` to the server.
