@@ -47,31 +47,52 @@ VALUES('jd', '$2b$10$feEQlH1icpSsQo8v2E.ql.ILgoQzXtNEWqqBEgcBDB4P/FzB2Ws16', 'jd
 
 Here are definitions and videos to understand some of the technology used in this auth backend to prevent certain security risks. It is not comprehensive but it is a start to understanding some of what goes into securing a website
 
-**Cookie:**
+#### Bcrypt for passwords
+
+The `bcrypt` Node.js package provides a secure way to handle passwords by ensuring that the actual passwords are never stored in the database in plain text, enhancing the security of your application against password theft.
+
+**Hashing Passwords:** When a new user registers, their password is hashed before being stored in the database. This ensures that even if the database is compromised, the actual passwords are not exposed.
+
+**Comparing Passwords:** During login, bcrypt compares the submitted password with the hashed password stored in the database. This comparison is done securely to prevent timing attacks.
+
+**_What Are Saltrounds?_**
+
+`SaltRounds` is a term used in the context of hashing passwords with bcrypt, a password-hashing function. It refers to the cost factor that controls how much time is needed to calculate a single bcrypt hash. The higher the saltRounds, the longer it takes to generate the hash, making the hashing process more resistant to brute-force attacks. `_The recommended default is 10_`
+
+**_Purpose_**
+
+To introduce a significant work factor in the hashing process. As computing power increases over time, increasing the saltRounds can help maintain the security of hashed passwords by making them more difficult and time-consuming to crack.
+
+**_How it Works_**
+
+`saltRounds` determines how many times the hashing algorithm is executed. Essentially, the output of one round becomes the input of the next, and this process repeats for as many times as specified by saltRounds. This repeated hashing helps protect against rainbow table attacks and brute-force attacks.
+
+#### Cookie
 
 A small piece of data sent from a website and stored on the user's computer by the user's web browser while the user is browsing. Cookies are designed to be a reliable mechanism for websites to remember stateful information (such as items added in the shopping cart in an online store) or to record the user's browsing activity (including clicking particular buttons, logging in, or recording which pages were visited in the past). They can also be used to remember pieces of information that the user previously entered into form fields, such as names, addresses, passwords, and credit card numbers.
 
 [Cookie Explanation Video](https://www.youtube.com/watch?v=s04Vjlcgwco)
 
-**httpOnly Cookie:**
+#### httpOnly Cookie
 
 A flag added to cookies that instructs the browser to prevent client-side scripts from accessing the data in the cookie. This helps mitigate cross-site scripting (XSS) attacks by ensuring that the cookie can only be sent to the server with HTTP requests.
 
 [HTTPOnlyCookie Video](https://www.youtube.com/watch?v=ROg1p0UZL0M) - The first 5 minutes give you a good understanding.
 
-**XSS (Cross-Site Scripting):**
+#### XSS (Cross-Site Scripting)
 
 A security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. These scripts can steal user data, impersonate the user, or perform actions on behalf of the user without their consent.
 
 [XSS - Cross Site Scripting Video](https://www.youtube.com/watch?v=EoaDgUgS6QA)
 
-**CSRF (Cross-Site Request Forgery):**
+#### CSRF (Cross-Site Request Forgery)
 
 A type of attack that tricks the victim into submitting a malicious request. It exploits the trust that a site has in a user's browser, and it can be mitigated by using anti-CSRF tokens which validate that the requests made to a server are intentional and originate from the authenticated user.
 
 [CSRF - Cross Site Resource Forgery Video](https://www.youtube.com/watch?v=eWEgUcHPle0)
 
-**JWT (JSON Web Token):**
+#### JWT (JSON Web Token)
+
 A compact, URL-safe means of representing claims to be transferred between two parties. It is often used for storing user session information in a secure way, and it can be signed to ensure the integrity and authenticity of the data it contains.
 
 [JWT - JSON Web Token Video](https://www.youtube.com/watch?v=P2CPd9ynFLg)
