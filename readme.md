@@ -54,3 +54,5 @@ A type of attack that tricks the victim into submitting a malicious request. It 
 A compact, URL-safe means of representing claims to be transferred between two parties. It is often used for storing user session information in a secure way, and it can be signed to ensure the integrity and authenticity of the data it contains.
 
 [JWT - JSON Web Token Video](https://www.youtube.com/watch?v=P2CPd9ynFLg)
+
+Also consult [Auth-Express-Frontend Readme](https://github.com/10-3-pursuit/auth-react-login) to see what security precautions have been put into place as well as auth routes for the login and register.
