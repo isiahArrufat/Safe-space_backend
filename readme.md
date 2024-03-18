@@ -14,7 +14,7 @@ You can use this backend along with the [react-login frontend](https://github.co
 
 - Create a parent folder
 - `fork` both repos
-  - [frontend](<(https://github.com/10-3-pursuit/auth-react-login)>)
+  - [frontend](https://github.com/10-3-pursuit/auth-react-login)
   - [backend](https://github.com/10-3-pursuit/auth-express-login)
 - `clone` both forked repos into the parent folder
 - Use the `env.example` in the backend to set up your postgresql database
