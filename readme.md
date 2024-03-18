@@ -1,12 +1,24 @@
 # EXPRESS SERVER with Authentication
 
-You can use this backend and the [fronend](https://github.com/10-3-pursuit/auth-react-login) repo as starters for a full stack project that will include login and register.
+## Overview
 
-This app handles JWT, httpOnlyCookies and CSURF protection
+This auth-express-login project uses httpOnly cookies to securely store JWTs, protecting them from being accessed by client-side scripts and thus mitigating XSS risks. CSRF protection is implemented using the csurf middleware, which requires a valid CSRF token for state-changing requests, preventing CSRF attacks. Using httpOnly cookies is a step towards securing your application against such vulnerabilities. There are videos listed below that speak to each technology.
 
-It includes authroutes for Register, Login, Logout, and checking Authentication
+This app includes authroutes for Register, Login, Logout, and checking Authentication all handled in an `authController`
 
-This will allow you to setup Protected routes based on user being Logged In on the Client Side
+This will allow you to setup Protected routes on the front end, based on a user being Logged In on the Client Side
+
+## Getting Started
+
+You can use this backend along with the [react-login frontend](https://github.com/10-3-pursuit/auth-react-login) repo as starters for a full stack project that will include login and register.
+
+- Create a parent folder
+- `fork` both repos
+- `clone` both forked repos into the parent folder
+- Use the `env.example` to set up your postgresql database
+- Tables have been included for the user.
+- If you want the user to have other fields you must update the schema and seed files properly
+- There are commented areas in the code where you must replace things such as the database name etc.
 
 ### Security Videos
 
