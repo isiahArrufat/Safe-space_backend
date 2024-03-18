@@ -1,5 +1,7 @@
 # EXPRESS SERVER with Authentication
 
+You can use this backend and the [fronend](https://github.com/10-3-pursuit/auth-react-login) repo as starters for a full stack project that will include login and register.
+
 This app handles JWT, httpOnlyCookies and CSURF protection
 
 It includes authroutes for Register, Login, Logout, and checking Authentication
