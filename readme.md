@@ -97,7 +97,7 @@ A security vulnerability that allows attackers to inject malicious scripts into 
 
 A type of attack that tricks the victim into submitting a malicious request. It exploits the trust that a site has in a user's browser, and it can be mitigated by using anti-CSRF tokens which validate that the requests made to a server are intentional and originate from the authenticated user.
 
-[CSRF - Cross Site Resource Forgery Video](https://www.youtube.com/watch?v=eWEgUcHPle0)
+[CSRF - Cross Site Resource Forgery Video](https://www.youtube.com/watch?v=eWEgUcHPle0) - first 11 1/2 minutes
 
 <hr />
 
