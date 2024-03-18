@@ -22,6 +22,27 @@ You can use this backend along with the [react-login frontend](https://github.co
 - If you want the user to have extra fields you must update the schema and update the `db/seed.sql` files properly.
 - There are commented areas in the code where you must replace things such as the database name etc.
 
+## Seeding Users
+
+You may seed more than one user.
+
+**Instructions:**
+
+- Go to the `generateHashForSeeding.js` file and fill in the `const password = ` variable with the password you would like to hash
+- In the terminal you will see the hash, `copy` it.
+- Go to the `seed.sql` and fill in the the row in `VALUES` adding the `username` you choose, `password_hash` (paste the hash you copied for this values), `email` you choose, and then use NOW() for both created_at and updated_at variables.
+
+e.g.
+
+```sql
+INSERT INTO users (userame, password_hash, email, created_at, updated_at)
+VALUES('jd', '$2b$10$feEQlH1icpSsQo8v2E.ql.ILgoQzXtNEWqqBEgcBDB4P/FzB2Ws16', 'jd@me.com', NOW(), NOW())
+```
+
+- run db:init again
+- run db:seed again
+- test by logging in on the frontend
+
 ### Security Explanations
 
 Here are definitions and videos to understand some of the technology used in this auth backend to prevent certain security risks. It is not comprehensive but it is a start to understanding some of what goes into securing a website
