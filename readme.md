@@ -75,11 +75,15 @@ A small piece of data sent from a website and stored on the user's computer by t
 
 [Cookie Explanation Video](https://www.youtube.com/watch?v=s04Vjlcgwco)
 
+<hr />
+
 #### httpOnly Cookie
 
 A flag added to cookies that instructs the browser to prevent client-side scripts from accessing the data in the cookie. This helps mitigate cross-site scripting (XSS) attacks by ensuring that the cookie can only be sent to the server with HTTP requests.
 
 [HTTPOnlyCookie Video](https://www.youtube.com/watch?v=ROg1p0UZL0M) - The first 5 minutes give you a good understanding.
+
+<hr />
 
 #### XSS (Cross-Site Scripting)
 
@@ -87,17 +91,23 @@ A security vulnerability that allows attackers to inject malicious scripts into 
 
 [XSS - Cross Site Scripting Video](https://www.youtube.com/watch?v=EoaDgUgS6QA)
 
+<hr />
+
 #### CSRF (Cross-Site Request Forgery)
 
 A type of attack that tricks the victim into submitting a malicious request. It exploits the trust that a site has in a user's browser, and it can be mitigated by using anti-CSRF tokens which validate that the requests made to a server are intentional and originate from the authenticated user.
 
 [CSRF - Cross Site Resource Forgery Video](https://www.youtube.com/watch?v=eWEgUcHPle0)
 
+<hr />
+
 #### JWT (JSON Web Token)
 
 A compact, URL-safe means of representing claims to be transferred between two parties. It is often used for storing user session information in a secure way, and it can be signed to ensure the integrity and authenticity of the data it contains.
 
 [JWT - JSON Web Token Video](https://www.youtube.com/watch?v=P2CPd9ynFLg)
+
+<hr />
 
 ### Go to Frontend
 
