@@ -22,7 +22,7 @@ You can use this backend along with the [react-login frontend](https://github.co
 
 ### Security Videos
 
-Here are videos to understand some of the technology used in this auth backend to prevent certain security risks. It is not comprehensive but it is a start to understanding some of what goes into securing a website
+Here are definitions and videos to understand some of the technology used in this auth backend to prevent certain security risks. It is not comprehensive but it is a start to understanding some of what goes into securing a website
 
 **Cookie:**
 
