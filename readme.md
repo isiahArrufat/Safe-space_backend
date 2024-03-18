@@ -2,7 +2,7 @@
 
 ## Overview
 
-This auth-express-login project uses httpOnly cookies to securely store JWTs, protecting them from being accessed by client-side scripts and thus mitigating XSS risks. CSRF protection is implemented using the csurf middleware, which requires a valid CSRF token for state-changing requests, preventing CSRF attacks. Using httpOnly cookies is a step towards securing your application against such vulnerabilities. There are videos listed below that speak to each technology.
+This auth-express-login project uses `httpOnly cookies` to securely store `JWTs`, protecting them from being accessed by client-side scripts and thus mitigating `XSS` risks. `CSRF` protection is implemented using the csurf middleware, which requires a valid `CSRF token` for state-changing requests, preventing `CSRF attacks`. Using `httpOnly cookies` is a step towards securing your application against such vulnerabilities. There are videos listed below that speak to each technology.
 
 This app includes authroutes for Register, Login, Logout, and checking Authentication all handled in an `authController`
 
@@ -20,7 +20,7 @@ You can use this backend along with the [react-login frontend](https://github.co
 - If you want the user to have extra fields you must update the schema and update the `db/seed.sql` files properly.
 - There are commented areas in the code where you must replace things such as the database name etc.
 
-### Security Videos
+### Security Explanations
 
 Here are definitions and videos to understand some of the technology used in this auth backend to prevent certain security risks. It is not comprehensive but it is a start to understanding some of what goes into securing a website
 
