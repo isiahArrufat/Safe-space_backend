@@ -47,7 +47,7 @@ VALUES('jd', '$2b$10$feEQlH1icpSsQo8v2E.ql.ILgoQzXtNEWqqBEgcBDB4P/FzB2Ws16', 'jd
 
 Here are definitions and videos to understand some of the technology used in this auth backend to prevent certain security risks. It is not comprehensive but it is a start to understanding some of what goes into securing a website
 
-#### Bcrypt for passwords
+#### Use Bcrypt for Password Hashing
 
 The `bcrypt` Node.js package provides a secure way to handle passwords by ensuring that the actual passwords are never stored in the database in plain text, enhancing the security of your application against password theft.
 
