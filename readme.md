@@ -57,7 +57,7 @@ _Comparing Passwords:_ During login, bcrypt compares the submitted password with
 
 _What Are Saltrounds?_
 
-`SaltRounds` is a term used in the context of hashing passwords with bcrypt, a password-hashing function. It refers to the cost factor that controls how much time is needed to calculate a single bcrypt hash. The higher the saltRounds, the longer it takes to generate the hash, making the hashing process more resistant to brute-force attacks. `_The recommended default is 10_`
+`SaltRounds` is a term used in the context of hashing passwords with bcrypt, a password-hashing function. It refers to the cost factor that controls how much time is needed to calculate a single bcrypt hash. The higher the saltRounds, the longer it takes to generate the hash, making the hashing process more resistant to brute-force attacks. _`The recommended default is 10`_
 
 _Purpose_
 
