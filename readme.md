@@ -51,9 +51,9 @@ Here are definitions and videos to understand some of the technology used in thi
 
 The `bcrypt` Node.js package provides a secure way to handle passwords by ensuring that the actual passwords are never stored in the database in plain text, enhancing the security of your application against password theft.
 
-**Hashing Passwords:** When a new user registers, their password is hashed before being stored in the database. This ensures that even if the database is compromised, the actual passwords are not exposed.
+**_Hashing Passwords:_** When a new user registers, their password is hashed before being stored in the database. This ensures that even if the database is compromised, the actual passwords are not exposed.
 
-**Comparing Passwords:** During login, bcrypt compares the submitted password with the hashed password stored in the database. This comparison is done securely to prevent timing attacks.
+**_Comparing Passwords:_** During login, bcrypt compares the submitted password with the hashed password stored in the database. This comparison is done securely to prevent timing attacks.
 
 **_What Are Saltrounds?_**
 
