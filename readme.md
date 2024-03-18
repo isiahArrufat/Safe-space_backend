@@ -16,8 +16,8 @@ You can use this backend along with the [react-login frontend](https://github.co
 - `fork` both repos
 - `clone` both forked repos into the parent folder
 - Use the `env.example` to set up your postgresql database
-- Tables have been included for the user.
-- If you want the user to have other fields you must update the schema and seed files properly
+- Postgresql tables have been included in `db/schema.sql` to define the user.
+- If you want the user to have extra fields you must update the schema and update the `db/seed.sql` files properly.
 - There are commented areas in the code where you must replace things such as the database name etc.
 
 ### Security Videos
