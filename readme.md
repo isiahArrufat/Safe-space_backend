@@ -67,6 +67,8 @@ _How it Works_
 
 `saltRounds` determines how many times the hashing algorithm is executed. Essentially, the output of one round becomes the input of the next, and this process repeats for as many times as specified by saltRounds. This repeated hashing helps protect against rainbow table attacks and brute-force attacks.
 
+[Password Storage Video](https://www.youtube.com/watch?v=qgpsIBLvrGY)
+
 <hr />
 
 #### Cookie
