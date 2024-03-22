@@ -15,7 +15,7 @@ const getAllReviews = async (teapot_id) => {
 //Show
 const getOneReview = async (id) => {
     try {
-        const oneReview = await db.one(`SELECT * FROM teapots WHERE reviews.id=$1`, id)
+        const oneReview = await db.one(`SELECT * FROM reviews WHERE id=$1`, id)
         return oneReview
     } catch (error) {
         return error
