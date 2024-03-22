@@ -56,5 +56,22 @@ const deleteReview = async (id) => {
 }
 
 
+//Update
+const updateReview = async (review) => {
+  try {
+    const updatedReview = await db.one(
+      "UPDATE reviews SET content=$1, rating=$2, updated_at=$3 where id = $4 RETURNING *", [
+        review.content,
+        review.rating,
+        review.updated_at,
+        review.id
+      ]
+    )
+    return updatedReview
+  } catch (error) {
+    return error
+  }
+}
 
-module.exports = {getAllReviews, getOneReview, createReview, deleteReview}
+
+module.exports = {getAllReviews, getOneReview, createReview, deleteReview, updateReview}

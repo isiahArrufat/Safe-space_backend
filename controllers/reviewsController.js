@@ -1,13 +1,13 @@
 const express = require("express");
 
 
-const {getAllReviews, getOneReview, createReview, deleteReview} = require("../queries/reviews.js")
+const {getAllReviews, getOneReview, createReview, deleteReview, updateReview} = require("../queries/reviews.js")
 const {getOneTeapot} = require("../queries/teapots.js")
 
 const reviews = express.Router({mergeParams: true});
 
 
-//Index Route
+//Index Route (api/teapots/2/reviews)
 reviews.get('/', async (req, res) => {
     const { teapot_id } = req.params
     
@@ -21,7 +21,7 @@ reviews.get('/', async (req, res) => {
     }
 })
 
-//Show Route
+//Show Route (api/teapots/1/reviews/2)
 reviews.get('/:review_id', async (req, res) => {
     const { teapot_id, review_id } = req.params
 
@@ -36,7 +36,7 @@ reviews.get('/:review_id', async (req, res) => {
     }
 })
 
-//Create Route
+//Create Route (api/teapots/2/reviews)
 reviews.post('/', async (req, res) => {
     const {teapot_id} = req.params
     
@@ -49,7 +49,7 @@ reviews.post('/', async (req, res) => {
     }
 })
 
-//Delete Route 
+//Delete Route (api/teapots/1/reviews/2)
 reviews.delete("/:review_id", async (req, res) => {
     const { review_id } = req.params;
 
@@ -61,5 +61,18 @@ reviews.delete("/:review_id", async (req, res) => {
         res.status(404).json({ error: "Review not found"})
     }
 })
+
+//Update Route (api/teapots/1/reviews/2)
+reviews.put("/:review_id", async (req, res) => {
+    const { teapot_id, review_id } = req.params;
+
+    const updatedReview = await updateReview({review_id, ...req.body, teapot_id})
+
+    if(updatedReview.id) {
+        res.status(200).json(updatedReview);
+    } else {
+        res.status(404).json({ error: "Review not found"});
+    }
+});
 
 module.exports = reviews
