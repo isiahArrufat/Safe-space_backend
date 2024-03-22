@@ -23,7 +23,7 @@ const getOneReview = async (id) => {
 }
 
 //Create
-const  createReview = async (review) => {
+const createReview = async (review) => {
     try {
       const newReview = await db.one(
         "INSERT INTO reviews (content, rating, teapot_id, user_id, created_at, updated_at) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
@@ -43,6 +43,18 @@ const  createReview = async (review) => {
   };
   
 
+//Delete
+const deleteReview = async (id) => {
+  try {
+    const deletedReview = await db.one(
+      "DELETE FROM reviews WHERE id = $1 RETURNING *", id
+    )
+    return deletedReview
+  } catch (error) {
+    return error;
+  }
+}
 
 
-module.exports = {getAllReviews, getOneReview, createReview}
+
+module.exports = {getAllReviews, getOneReview, createReview, deleteReview}

@@ -1,7 +1,7 @@
 const express = require("express");
 
 
-const {getAllReviews, getOneReview, createReview} = require("../queries/reviews.js")
+const {getAllReviews, getOneReview, createReview, deleteReview} = require("../queries/reviews.js")
 const {getOneTeapot} = require("../queries/teapots.js")
 
 const reviews = express.Router({mergeParams: true});
@@ -47,7 +47,19 @@ reviews.post('/', async (req, res) => {
     } else {
         res.status(500).json({error: 'Failed to create review.'})
     }
+})
 
+//Delete Route 
+reviews.delete("/:review_id", async (req, res) => {
+    const { review_id } = req.params;
+
+    const deletedReview = await deleteReview(review_id)
+
+    if(deletedReview.id) {
+        res.status(200).json(deletedReview)
+    } else {
+        res.status(404).json({ error: "Review not found"})
+    }
 })
 
 module.exports = reviews
