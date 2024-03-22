@@ -18,4 +18,25 @@ CREATE TABLE users (
 );
 
 
+CREATE TABLE teapots (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  image TEXT NOT NULL,
+  price INTEGER NOT NULL,
+  description VARCHAR(500),
+  material TEXT,
+  capacity INTEGER
+);
+
+CREATE TABLE reviews (
+  id SERIAL PRIMARY KEY,
+  content VARCHAR(500),
+  rating NUMERIC
+  CHECK(rating >= 1 AND rating <= 5),
+  created_at DATE,
+  updated_at DATE,
+  teapot_id INTEGER REFERENCES teapots(id),
+  user_id INTEGER REFERENCES users(id)
+  ON DELETE CASCADE
+);
 
