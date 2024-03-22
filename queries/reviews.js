@@ -22,6 +22,27 @@ const getOneReview = async (id) => {
     }
 }
 
+//Create
+const  createReview = async (review) => {
+    try {
+      const newReview = await db.one(
+        "INSERT INTO reviews (content, rating, teapot_id, user_id, created_at, updated_at) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
+        [
+          review.content,
+          review.rating,
+          review.teapot_id,
+          review.user_id,
+          review.created_at,
+          review.updated_at
+        ]
+      );
+      return newReview;
+    } catch (error) {
+      return error;
+    }
+  };
+  
 
 
-module.exports = {getAllReviews, getOneReview}
+
+module.exports = {getAllReviews, getOneReview, createReview}

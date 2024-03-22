@@ -1,13 +1,13 @@
 const express = require("express");
 
 
-const {getAllReviews, getOneReview} = require("../queries/reviews.js")
+const {getAllReviews, getOneReview, createReview} = require("../queries/reviews.js")
 const {getOneTeapot} = require("../queries/teapots.js")
 
 const reviews = express.Router({mergeParams: true});
 
 
-//Index ROute
+//Index Route
 reviews.get('/', async (req, res) => {
     const { teapot_id } = req.params
     
@@ -21,10 +21,10 @@ reviews.get('/', async (req, res) => {
     }
 })
 
-//Show route
+//Show Route
 reviews.get('/:review_id', async (req, res) => {
     const { teapot_id, review_id } = req.params
-    console.log(req.params)
+
     const review = await getOneReview(review_id)
 
     const teapot = await getOneTeapot(teapot_id)
@@ -36,6 +36,18 @@ reviews.get('/:review_id', async (req, res) => {
     }
 })
 
+//Create Route
+reviews.post('/', async (req, res) => {
+    const {teapot_id} = req.params
+    
+    const newReview = await createReview({...req.body, teapot_id});
 
+    if (newReview.id) {
+        res.status(200).json(newReview)
+    } else {
+        res.status(500).json({error: 'Failed to create review.'})
+    }
+
+})
 
 module.exports = reviews
