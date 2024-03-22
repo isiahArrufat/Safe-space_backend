@@ -5,6 +5,7 @@ const csrf = require('csurf')
 const cookieParser = require('cookie-parser')
 const userController = require('./controllers/userController')
 const authController = require('./controllers/authController')
+const teapotsController = require('./controllers/teapotsController')
 
 // CONFIGURATION
 const app = express()
@@ -29,10 +30,11 @@ app.use((req, res, next) => {
 
 app.use('/api/users', userController)
 app.use('/api/auth', authController)
+app.use('/api/teapots', teapotsController)
 
 // ROUTES
 app.get('/', (req, res) => {
-  res.send('Welcome to Basic Express Server')
+  res.send('Welcome to TeaWhips!')
 })
 
 // 404 PAGE
