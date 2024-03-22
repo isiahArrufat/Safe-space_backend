@@ -2,7 +2,11 @@ const express = require("express");
 
 const teapots = express.Router();
 
+const reviewsController = require('./reviewsController.js')
+
 const { getAllTeapots, getOneTeapot } = require("../queries/teapots")
+
+teapots.use('/:teapot_id/reviews', reviewsController)
 
 //Index
 teapots.get('/', async (req,res) => {
