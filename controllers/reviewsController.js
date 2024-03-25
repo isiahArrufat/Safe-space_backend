@@ -43,7 +43,7 @@ reviews.get("/:review_id", async (req, res) => {
 //Create Route (api/teapots/2/reviews)
 reviews.post("/", async (req, res) => {
   const { teapot_id } = req.params;
-
+  // console.log(req.body, teapot_id)
   const newReview = await createReview({ ...req.body, teapot_id });
 
   if (newReview.id) {

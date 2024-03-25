@@ -26,18 +26,19 @@ const getOneReview = async (id) => {
 
 //Create
 const createReview = async (review) => {
+  // console.log("query", review)
   try {
     const newReview = await db.one(
-      "INSERT INTO reviews (content, rating, teapot_id, user_id, created_at, updated_at) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
+      "INSERT INTO reviews (content, rating, teapot_id, user_id, created_at) VALUES($1, $2, $3, $4, $5) RETURNING *",
       [
         review.content,
         review.rating,
         review.teapot_id,
         review.user_id,
         review.created_at,
-        review.updated_at,
       ]
     );
+    // console.log(newReview)
     return newReview;
   } catch (error) {
     return error;
