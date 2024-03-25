@@ -33,8 +33,8 @@ CREATE TABLE reviews (
   content VARCHAR(500),
   rating NUMERIC
   CHECK(rating >= 1 AND rating <= 5),
-  created_at DATE,
-  updated_at DATE,
+  created_at TEXT,
+  updated_at TEXT,
   teapot_id INTEGER REFERENCES teapots(id),
   user_id INTEGER REFERENCES users(id)
   ON DELETE CASCADE
