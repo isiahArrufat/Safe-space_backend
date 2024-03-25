@@ -22,15 +22,15 @@ VALUES
 
 INSERT INTO reviews(user_id, teapot_id, content, rating, created_at, updated_at)
 VALUES
-(1, 3, 'Great teapot, love the design!', 5, NOW(), null),
-(1, 7, 'Nice addition to my collection.', 4, NOW(), null),
-(1, 2, 'Unique design, but a bit pricey.', 2, NOW(), null),
-(1, 5, 'Absolutely love this teapot!', 5, NOW(), null),
-(1, 9, 'Great vintage find, adds character to my kitchen.', 3, NOW(), null),
-(1, 10, 'Functional and stylish, exactly what I needed.', 5, NOW(), null),
-(2, 3, 'Absolutely love this teapot!', 5, NOW(), null),
-(2, 5, 'Very small.', 1, NOW(), null),
-(2, 8, 'Decently sized. wished it was a bit bigger.', 2, NOW(), null),
-(2, 2, 'This teapot is fantastic. It brews tea beautifully and looks great on my countertop.', 5, NOW(), null),
-(2, 7, 'I love the vintage vibe of this teapot. It adds a unique touch to my kitchen decor.', 4, NOW(), null),
-(2, 9, 'This teapot is both stylish and practical. It pours perfectly and keeps the tea hot.', 5, NOW(), null);
+(1, 3, 'Great teapot, love the design!', 5, '2024-02-21', null),
+(1, 7, 'Nice addition to my collection.', 4, '2024-03-25', null),
+(1, 2, 'Unique design, but a bit pricey.', 2, '2024-01-31', null),
+(1, 5, 'Absolutely love this teapot!', 5, '2024-03-02', null),
+(1, 9, 'Great vintage find, adds character to my kitchen.', 3, '2023-10-14', null),
+(1, 10, 'Functional and stylish, exactly what I needed.', 5, '2022-09-04', null),
+(2, 3, 'Absolutely love this teapot!', 5, '2023-05-26', null),
+(2, 5, 'Very small.', 1, '2024-03-25', null),
+(2, 8, 'Decently sized. wished it was a bit bigger.', 2, '2022-12-25', null),
+(2, 2, 'This teapot is fantastic. It brews tea beautifully and looks great on my countertop.', 5, '2024-02-29', null),
+(2, 7, 'I love the vintage vibe of this teapot. It adds a unique touch to my kitchen decor.', 4, '2023-04-18', null),
+(2, 9, 'This teapot is both stylish and practical. It pours perfectly and keeps the tea hot.', 5, '2024-03-25', null);
