@@ -1,5 +1,6 @@
 const express = require('express')
 const user = express.Router()
+const {findUserByUsername} = require("../queries/users")
 
 const { authenticateToken } = require('../middlewares/authenticateToken')
 

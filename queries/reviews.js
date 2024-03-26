@@ -77,10 +77,22 @@ const updateReview = async (review) => {
   }
 };
 
+//Grab Users And Reviews
+const grabUserAndReview = async (teapot_id) => {
+  try {
+    const userAndReviews = await db.any("SELECT reviews.*, users.id, users.username FROM reviews LEFT JOIN users ON reviews.user_id = users.id WHERE teapot_id = $1", teapot_id)
+    return userAndReviews
+  } catch (error) {
+    return error
+  }
+}
+
+
 module.exports = {
   getAllReviews,
   getOneReview,
   createReview,
   deleteReview,
   updateReview,
+  grabUserAndReview
 };

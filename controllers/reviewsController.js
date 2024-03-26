@@ -6,6 +6,7 @@ const {
   createReview,
   deleteReview,
   updateReview,
+  grabUserAndReview
 } = require("../queries/reviews.js");
 const { getOneTeapot } = require("../queries/teapots.js");
 
@@ -15,9 +16,12 @@ const reviews = express.Router({ mergeParams: true });
 reviews.get("/", async (req, res) => {
   const { teapot_id } = req.params;
 
-  const allReviews = await getAllReviews(teapot_id);
+  const allReviews = await grabUserAndReview(teapot_id);
+  // console.log(allReviews)
   const teapot = await getOneTeapot(teapot_id);
+  // console.log(teapot)
 
+  console.log({ ...teapot, allReviews })
   if (teapot.id) {
     res.status(200).json({ ...teapot, allReviews });
   } else {
@@ -81,4 +85,5 @@ reviews.put("/:review_id", async (req, res) => {
   }
 });
 
+reviews.get("/:")
 module.exports = reviews;
