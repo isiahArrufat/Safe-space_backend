@@ -17,11 +17,11 @@ reviews.get("/", async (req, res) => {
   const { teapot_id } = req.params;
 
   const allReviews = await grabUserAndReview(teapot_id);
+  // const allReviews = await getAllReviews(teapot_id);
   // console.log(allReviews)
   const teapot = await getOneTeapot(teapot_id);
   // console.log(teapot)
 
-  console.log({ ...teapot, allReviews })
   if (teapot.id) {
     res.status(200).json({ ...teapot, allReviews });
   } else {
