@@ -12,14 +12,14 @@ function checkContentRating(req, res, next) {
     }
 
     // check if user_id exists and is a number
-    if(!user_id || typeof user_id !== 'number') {
-        return res.status(400).json({ error: 'User id is missing.'})
-    }
+    // if(!user_id || typeof user_id !== 'number') {
+    //     return res.status(400).json({ error: 'User id is missing.'})
+    // }
 
     // check if teapot_id exists and is a number
-    if(!teapot_id || typeof teapot_id !== 'number') {
-        return res.status(400).json({ error: 'Teapot id is missing.'})
-    }
+    // if(!teapot_id || typeof teapot_id !== 'number') {
+    //     return res.status(400).json({ error: 'Teapot id is missing.'})
+    // }
     next()
 }
 
