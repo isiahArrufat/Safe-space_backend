@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon server.js",
     "db:init": "psql -U postgres -f db/schema.sql",
-    "db:seed": "psql -U postgres -f db/seed.sql"
+    "db:seed": "psql -U postgres -f db/seed.sql",
+    "start":"npm start"
   },
   "keywords": [],
   "author": "",
