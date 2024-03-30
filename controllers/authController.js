@@ -1,97 +1,98 @@
-const express = require('express')
-const bcrypt = require('bcrypt')
-const { generateToken } = require('../utils/token')
-const { findUserByUsername, createUser } = require('../queries/users')
-const { authenticateToken } = require('../middlewares/authenticateToken')
-const auth = express.Router()
+const express = require("express");
+const bcrypt = require("bcrypt");
+const { generateToken } = require("../utils/token");
+const { findUserByUsername, createUser } = require("../queries/users");
+const { authenticateToken } = require("../middlewares/authenticateToken");
+const auth = express.Router();
 
 // Login route
-auth.post('/login', async (req, res) => {
-  const { username, password } = req.body
+auth.post("/login", async (req, res) => {
+  const { username, password } = req.body;
 
   try {
-    const user = await findUserByUsername(username)
+    const user = await findUserByUsername(username);
 
-    if (!user) return res.status(401).json({ message: 'Invalid credentials' })
+    if (!user) return res.status(401).json({ message: "Invalid credentials" });
 
-    const validPassword = await bcrypt.compare(password, user.password_hash)
+    const validPassword = await bcrypt.compare(password, user.password_hash);
 
     if (!validPassword)
-      return res.status(401).json({ message: 'Invalid credentials' })
+      return res.status(401).json({ message: "Invalid credentials" });
 
-    const token = generateToken(user)
-    res.cookie('token', token, {
+    const token = generateToken(user);
+    res.cookie("token", token, {
       httpOnly: true,
       secure: true,
-      sameSite: 'strict',
-    })
+      sameSite: "none",
+    });
 
     res.status(200).json({
-      message: 'Logged in successfully',
+      message: "Logged in successfully",
       user: user.username,
       id: user.id,
       email: user.email,
-    })
+    });
   } catch (error) {
-    console.error(error)
+    console.error(error);
     res
       .status(500)
-      .json({ message: 'An error occurred during the login process.' })
+      .json({ message: "An error occurred during the login process." });
   }
-})
+});
 
 // Register route
-auth.post('/register', async (req, res) => {
-  const { username, password, email } = req.body
+auth.post("/register", async (req, res) => {
+  const { username, password, email } = req.body;
   try {
     // Check if user already exists
-    const existingUser = await findUserByUsername(username)
+    const existingUser = await findUserByUsername(username);
     if (existingUser) {
-      return res.status(409).json({ message: 'Username already taken' })
+      return res.status(409).json({ message: "Username already taken" });
     }
 
     // Hash password
-    const saltRounds = 10
-    const hashedPassword = await bcrypt.hash(password, saltRounds)
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     // Create user in the database
     const newUser = await createUser({
       username,
       passwordHash: hashedPassword,
       email,
-    })
+    });
 
     // Generate token (optional, if you want to log the user in immediately)
-    const token = generateToken(newUser)
+    const token = generateToken(newUser);
 
     // Set token in HTTP-only cookie (optional, for immediate login)
-    res.cookie('token', token, {
+    res.cookie("token", token, {
       httpOnly: true,
       secure: true,
-      sameSite: 'strict',
-    })
+      sameSite: "strict",
+    });
 
     // Respond with success message (or token/user info if needed)
-    res.status(201).json({ message: 'User registered successfully', newUser })
+    res.status(201).json({ message: "User registered successfully", newUser });
   } catch (error) {
-    console.error(error)
+    console.error(error);
     res
       .status(500)
-      .json({ message: 'An error occurred during the registration process.' })
+      .json({ message: "An error occurred during the registration process." });
   }
-})
+});
 
-auth.get('/logout', async (_req, res) => {
+auth.get("/logout", async (_req, res) => {
   try {
-    res.clearCookie('token')
-    res.status(200).json({ message: 'Logged out successfully' })
+    res.clearCookie("token");
+    res.status(200).json({ message: "Logged out successfully" });
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-})
+});
 
-auth.get('/check-auth', authenticateToken, (req, res) => {
+auth.get("/check-auth", authenticateToken, (req, res) => {
   // Assuming authenticateToken middleware adds user info to req.user
+  console.log("check auth");
 
   if (req.user) {
     res.status(200).json({
@@ -102,11 +103,11 @@ auth.get('/check-auth', authenticateToken, (req, res) => {
         email: req.user.email,
         // Include other user details you want to send back to the client
       },
-    })
+    });
   } else {
     // If for some reason, req.user is not set, treat as not authenticated
-    res.status(401).json({ isAuthenticated: false })
+    res.status(401).json({ isAuthenticated: false });
   }
-})
+});
 
-module.exports = auth
+module.exports = auth;

@@ -21,11 +21,11 @@ cron.schedule("*/10 * * * *", () => {
 // MIDDLEWARE
 app.use(
   cors({
-    origin: "https://main--exquisite-pudding-29dd47.netlify.app",
+    origin: "https://teapot-backend-auth.onrender.com",
 
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization", "CSRF-Token"],
   })
 );
 app.use(express.json());
@@ -35,13 +35,7 @@ const csrfProtection = csrf({ cookie: true });
 app.use(csrfProtection);
 
 app.use((req, res, next) => {
-  res.cookie("XSRF-TOKEN", req.csrfToken()),
-    {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-    };
-  next();
+  res.cookie("XSRF-TOKEN", req.csrfToken()), next();
 });
 
 app.use("/api/users", userController);
