@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const cors = require("cors");
 const express = require("express");
+const cron = require('node-cron')
 const csrf = require("csurf");
 const cookieParser = require("cookie-parser");
 const userController = require("./controllers/userController");
@@ -10,12 +11,21 @@ const teapotsController = require("./controllers/teapotsController");
 // CONFIGURATION
 const app = express();
 
+cron.schedule('*/10 * * * *', () => {
+  const currentTime = new Date().toLocaleString('en-US', {
+    timeZone: 'America/New_York',
+  })
+  console.log(`Running a task every 10 minutes. Current time: ${currentTime}`)
+})
+
 // MIDDLEWARE
 app.use(
   cors({
-    origin: "https://main--exquisite-pudding-29dd47.netlify.app", // Allow only this origin to access
-    credentials: true, // Allow cookies and headers to be sent along with the request
-  })
+    origin: "https://main--exquisite-pudding-29dd47.netlify.app", 
+ 
+    credentials: true, 
+    methods: ["GET", "POST", "PUT", "DELETE","PATCH"], 
+    allowedHeaders: ["Content-Type", "Authorization"]}
 );
 app.use(express.json());
 app.use(cookieParser());
