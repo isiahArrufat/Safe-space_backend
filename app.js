@@ -35,7 +35,12 @@ const csrfProtection = csrf({ cookie: true });
 app.use(csrfProtection);
 
 app.use((req, res, next) => {
-  res.cookie("XSRF-TOKEN", req.csrfToken());
+  res.cookie("XSRF-TOKEN", req.csrfToken()),
+    {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+    };
   next();
 });
 
