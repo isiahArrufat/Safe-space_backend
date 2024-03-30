@@ -25,7 +25,12 @@ app.use(
 
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    allowedHeaders: ["Content-Type", "Authorization", "CSRF-Token"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "CSRF-Token",
+      "X-XSRF-TOKEN",
+    ],
   })
 );
 app.use(express.json());
