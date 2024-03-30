@@ -1,18 +1,21 @@
 const jwt = require("jsonwebtoken");
 
 const authenticateToken = (req, res, next) => {
-  // Retrieve the token from the cookies
-  console.log("check auth");
-  const token = req.cookies["token"];
-  console.log("token", token);
-  if (token === null)
-    return res.sendStatus(401).json({ message: "Unauthorized" }); // If no token, return 401 Unauthorized
+  const authHeader = req.headers["authorization"];
 
-  // Verify the token
+  const token = authHeader && authHeader.split(" ")[1];
+
+  if (token == null) {
+    return res.sendStatus(401).json({ message: "Unauthorized" });
+  }
+
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) return res.status(403).json({ message: "Forbidden" }); // If token is not valid, return 403 Forbidden
-    req.user = user; // Add the user payload to the request object
-    next(); // Proceed to the next middleware or route handler
+    if (err) {
+      console.log(err);
+      return res.status(403).json({ message: "Forbidden" });
+    }
+    req.user = user;
+    next();
   });
 };
 

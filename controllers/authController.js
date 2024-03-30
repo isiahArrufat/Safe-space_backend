@@ -31,6 +31,7 @@ auth.post("/login", async (req, res) => {
       user: user.username,
       id: user.id,
       email: user.email,
+      token: token,
     });
   } catch (error) {
     console.error(error);
@@ -72,7 +73,10 @@ auth.post("/register", async (req, res) => {
     });
 
     // Respond with success message (or token/user info if needed)
-    res.status(201).json({ message: "User registered successfully", newUser });
+    res.status(201).json({
+      message: "User registered successfully",
+      newUser: { ...newUser, token },
+    });
   } catch (error) {
     console.error(error);
     res
@@ -83,7 +87,7 @@ auth.post("/register", async (req, res) => {
 
 auth.get("/logout", async (_req, res) => {
   try {
-    res.clearCookie("token");
+    // res.clearCookie("token");
     res.status(200).json({ message: "Logged out successfully" });
   } catch (err) {
     console.log(err);
