@@ -66,19 +66,20 @@ auth.post("/register", async (req, res) => {
 
     // Generate token (optional, if you want to log the user in immediately)
     const token = generateToken(newUser);
-
+    console.log("register token", token);
     // Set token in HTTP-only cookie (optional, for immediate login)
     res.cookie("token", token, {
       httpOnly: true,
       secure: true,
       sameSite: "strict",
     });
-
-    // Respond with success message (or token/user info if needed)
-    res.status(201).json({
-      message: "User registered successfully",
-      newUser: { ...newUser, token },
-    });
+    if (token) {
+      // Respond with success message (or token/user info if needed)
+      res.status(201).json({
+        message: "User registered successfully",
+        newUser: { ...newUser, token },
+      });
+    }
   } catch (error) {
     console.error(error);
     res
