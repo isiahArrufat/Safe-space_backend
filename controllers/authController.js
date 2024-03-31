@@ -62,6 +62,8 @@ auth.post("/register", async (req, res) => {
       email,
     });
 
+    console.log("new User", newUser);
+
     // Generate token (optional, if you want to log the user in immediately)
     const token = generateToken(newUser);
 
