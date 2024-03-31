@@ -2,7 +2,6 @@
 const cors = require("cors");
 const express = require("express");
 const cron = require("node-cron");
-const csrf = require("csurf");
 const cookieParser = require("cookie-parser");
 const userController = require("./controllers/userController");
 const authController = require("./controllers/authController");
