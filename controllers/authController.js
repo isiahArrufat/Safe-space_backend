@@ -96,7 +96,6 @@ auth.get("/logout", async (_req, res) => {
 
 auth.get("/check-auth", authenticateToken, (req, res) => {
   // Assuming authenticateToken middleware adds user info to req.user
-  console.log("check auth");
 
   if (req.user) {
     res.status(200).json({

@@ -22,25 +22,10 @@ cron.schedule("*/10 * * * *", () => {
 app.use(
   cors({
     origin: "http://localhost:3000",
-    // credentials: true,
-    // methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    // allowedHeaders: [
-    //   "Content-Type",
-    //   "Authorization",
-    //   "CSRF-Token",
-    //   "X-XSRF-TOKEN",
-    // ],
   })
 );
 app.use(express.json());
 app.use(cookieParser());
-// const csrfProtection = csrf({ cookie: true });
-
-// app.use(csrfProtection);
-
-// app.use((req, res, next) => {
-//   res.cookie("XSRF-TOKEN", req.csrfToken()), next();
-// });
 
 app.use("/api/users", userController);
 app.use("/api/auth", authController);

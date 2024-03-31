@@ -6,23 +6,21 @@ const {
   createReview,
   deleteReview,
   updateReview,
-  grabUserAndReview
+  grabUserAndReview,
 } = require("../queries/reviews.js");
 const { getOneTeapot } = require("../queries/teapots.js");
 
 const reviews = express.Router({ mergeParams: true });
 
-const { checkContentRating } = require('../validations/validateReview.js')
+const { checkContentRating } = require("../validations/validateReview.js");
 
 //Index Route (api/teapots/2/reviews)
 reviews.get("/", async (req, res) => {
   const { teapot_id } = req.params;
 
   const allReviews = await grabUserAndReview(teapot_id);
-  // const allReviews = await getAllReviews(teapot_id);
-  // console.log(allReviews)
+
   const teapot = await getOneTeapot(teapot_id);
-  // console.log(teapot)
 
   if (teapot.id) {
     res.status(200).json({ ...teapot, allReviews });
@@ -49,7 +47,7 @@ reviews.get("/:review_id", async (req, res) => {
 //Create Route (api/teapots/2/reviews)
 reviews.post("/", checkContentRating, async (req, res) => {
   const { teapot_id } = req.params;
-  // console.log(req.body, teapot_id)
+
   const newReview = await createReview({ ...req.body, teapot_id });
 
   if (newReview.id) {
