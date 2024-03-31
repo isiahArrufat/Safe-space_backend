@@ -102,6 +102,7 @@ auth.get("/check-auth", authenticateToken, (req, res) => {
 });
 
 auth.get("/user", authenticateToken, async (req, res) => {
+  console.log("hit get user");
   try {
     const userId = req.user.id;
     if (!userId) {
