@@ -101,4 +101,30 @@ auth.get("/check-auth", authenticateToken, (req, res) => {
   }
 });
 
+auth.get("/user", authenticateToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    if (!userId) {
+      return res.status(400).json({ message: "User ID not found in token" });
+    }
+
+    const user = await getUserById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Return the user information, excluding sensitive data like password
+    res.status(200).json({
+      user: {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 module.exports = auth;
