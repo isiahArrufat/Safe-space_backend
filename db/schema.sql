@@ -1,12 +1,11 @@
 -- db/schema.sql
-DROP DATABASE IF EXISTS jwt-auth;
+DROP DATABASE IF EXISTS jwt_auth;
 
-CREATE DATABASE jwt-auth;
+CREATE DATABASE jwt_auth;
 
 
-\c jwt-auth
+\c jwt_auth
 
-DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -17,26 +16,4 @@ CREATE TABLE users (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
-
-CREATE TABLE teapots (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
-  image TEXT NOT NULL,
-  price INTEGER NOT NULL,
-  description VARCHAR(500),
-  material TEXT,
-  capacity INTEGER
-);
-
-CREATE TABLE reviews (
-  id SERIAL PRIMARY KEY,
-  content VARCHAR(500),
-  rating NUMERIC
-  CHECK(rating >= 1 AND rating <= 5),
-  created_at TEXT,
-  updated_at TEXT,
-  teapot_id INTEGER REFERENCES teapots(id),
-  user_id INTEGER REFERENCES users(id)
-  ON DELETE CASCADE
-);
 
