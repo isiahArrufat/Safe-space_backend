@@ -2,7 +2,7 @@
 
 ## Overview
 
-This auth-express-login project uses `httpOnly cookies` to securely store `JWTs`, protecting them from being accessed by client-side scripts and thus mitigating `XSS` risks. `CSRF` protection is implemented using the csurf middleware, which requires a valid `CSRF token` for state-changing requests, preventing `CSRF attacks`. Using `httpOnly cookies` is a step towards securing your application against such vulnerabilities. There are videos listed below that speak to each technology.
+This auth-express-login project uses JWT (JSON Web Tokens) as a mini-security
 
 This app includes authroutes for Register, Login, Logout, and checking Authentication all handled in the `controllers/authController.js` file.
 
@@ -10,12 +10,12 @@ This will allow you to setup Protected routes on the front end, based on a user 
 
 ## Getting Started
 
-You can use this backend along with the [react-login frontend](https://github.com/10-3-pursuit/auth-react-login) repo as starters for a full stack project that will include login and register.
+You can use this backend along with the [react-login frontend](https://github.com/10-3-pursuit/jwt-auth-frontend) repo as starters for a full stack project that will include login and register.
 
 - Create a parent folder
 - `fork` both repos
-  - [frontend](https://github.com/10-3-pursuit/auth-react-login)
-  - [backend](https://github.com/10-3-pursuit/auth-express-login)
+  - [frontend](https://github.com/10-3-pursuit/jwt-auth-frontend)
+  - [backend](https://github.com/10-3-pursuit/jwt-auth-backend)
 - `clone` both forked repos into the parent folder
 - Use the `env.example` in the backend to set up your postgresql database
 - Postgresql tables have been included in `db/schema.sql` to define the user.
