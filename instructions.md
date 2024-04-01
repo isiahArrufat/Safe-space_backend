@@ -1,4 +1,4 @@
-# EXPRESS SERVER with Authentication & User Login
+# EXPRESS SERVER with JWT Authentication
 
 ## Overview
 

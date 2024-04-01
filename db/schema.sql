@@ -1,10 +1,10 @@
 -- db/schema.sql
-DROP DATABASE IF EXISTS authdb;
+DROP DATABASE IF EXISTS jwt-auth;
 
-CREATE DATABASE authdb;
+CREATE DATABASE jwt-auth;
 
 
-\c authdb
+\c jwt-auth
 
 DROP TABLE IF EXISTS users;
 
