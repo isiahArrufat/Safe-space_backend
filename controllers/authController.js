@@ -23,10 +23,8 @@ auth.post("/login", async (req, res) => {
 
     res.status(200).json({
       message: "Logged in successfully",
-      user: user.username,
-      id: user.id,
-      email: user.email,
-      token: token,
+      user,
+      token,
     });
   } catch (error) {
     console.error(error);
@@ -60,7 +58,7 @@ auth.post("/register", async (req, res) => {
     const token = generateToken(newUser);
 
     if (token) {
-      res.status(201).json({
+      return res.status(201).json({
         message: "User registered successfully",
         newUser,
         token,
@@ -78,13 +76,11 @@ auth.get("/check-auth", authenticateToken, (req, res) => {
   // Assuming authenticateToken middleware adds user info to req.user
 
   if (req.user) {
-    res.status(200).json({
+    const { user } = req;
+    return res.status(200).json({
       isAuthenticated: true,
       user: {
-        id: req.user.id,
-        username: req.user.username,
-        email: req.user.email,
-        // Include other user details you want to send back to the client
+        user,
       },
     });
   } else {
