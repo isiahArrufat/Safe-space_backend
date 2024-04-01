@@ -71,14 +71,6 @@ _How it Works_
 
 <hr />
 
-#### XSS (Cross-Site Scripting)
-
-A security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. These scripts can steal user data, impersonate the user, or perform actions on behalf of the user without their consent.
-
-[XSS - Cross Site Scripting Video](https://www.youtube.com/watch?v=EoaDgUgS6QA) - the first 8 1/2 to 11 minutes is good.
-
-<hr />
-
 #### JWT (JSON Web Token)
 
 A compact, URL-safe means of representing claims to be transferred between two parties. It is often used for storing user session information in a secure way, and it can be signed to ensure the integrity and authenticity of the data it contains.
@@ -86,6 +78,14 @@ A compact, URL-safe means of representing claims to be transferred between two p
 [JWT - JSON Web Token Video](https://www.youtube.com/watch?v=P2CPd9ynFLg)
 
 [JWT Docs](https://jwt.io) - these docs are great and pretty straightforward to read.
+
+<hr />
+
+#### XSS (Cross-Site Scripting)
+
+A security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. These scripts can steal user data, impersonate the user, or perform actions on behalf of the user without their consent.
+
+[XSS - Cross Site Scripting Video](https://www.youtube.com/watch?v=EoaDgUgS6QA) - the first 8 1/2 to 11 minutes is good.
 
 <hr />
 
