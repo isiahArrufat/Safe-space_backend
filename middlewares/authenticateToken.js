@@ -1,23 +1,22 @@
 const jwt = require("jsonwebtoken");
 
-const authenticateToken = (req, res, next) => {
-  const authHeader = req.headers["authorization"];
+const authenticateToken = async (req, res, next) => {
+  const authHeader = await req.headers["authorization"];
 
-  const token = authHeader && authHeader.split(" ")[1];
+  if (authHeader.includes("null"))
+    return res.status(401).json({ message: "Unauthorized" });
+  else {
+    const token = authHeader && (await authHeader.split(" ")[1]);
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+      if (err) {
+        console.log(err);
+        return res.status(403).json({ message: "Forbidden" });
+      }
 
-  if (token == null) {
-    return res.sendStatus(401).json({ message: "Unauthorized" });
+      req.user = user;
+      next();
+    });
   }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) {
-      console.log(err);
-      return res.status(403).json({ message: "Forbidden" });
-    }
-
-    req.user = user;
-    next();
-  });
 };
 
 module.exports = { authenticateToken };

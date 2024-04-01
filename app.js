@@ -14,7 +14,7 @@ cron.schedule("*/5 * * * *", () => {
   const currentTime = new Date().toLocaleString("en-US", {
     timeZone: "America/New_York",
   });
-  console.log(`Running a task every 10 minutes. Current time: ${currentTime}`);
+  console.log(`Running a task every 5 minutes. Current time: ${currentTime}`);
 });
 
 // MIDDLEWARE change origin to your frontend netlify address for deployment
