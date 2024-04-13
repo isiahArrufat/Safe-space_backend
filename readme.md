@@ -32,7 +32,8 @@ React.js for the user interface.
 Express.js for handling server-side logic and API endpoints.
 ### Database: 
 PostgreSQL for storing user data, journal entries, and comments.
-Authentication: JWT (JSON Web Tokens) for user authentication and authorization.
+### Authentication: 
+JWT (JSON Web Tokens) for user authentication and authorization.
 ### Deployment: 
 The application is deployed on a cloud platform such TBA
 Contributing
