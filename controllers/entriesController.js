@@ -7,10 +7,9 @@ const {
     getEntry,
     newEntry,
     deleteEntry,
-    updateEntry    
+    updateEntry,
+    getEntriesById,    
 } = require("../queries/entries");
-
-const { findUserByUsername } = require('../queries/users')
 
 // index
 entries.get('/', async (req, res) => {
@@ -21,11 +20,12 @@ entries.get('/', async (req, res) => {
         res.status(500).json({ error: 'server error' });
     }
 });
+
 // show
 entries.get('/:id', async (req, res) =>{
     try {
         const { id } = req.params;
-        const entry = await getEntry(id);
+        const entry = await getEntriesById(id);
         if (entry) {
             res.json(entry);
         } else {

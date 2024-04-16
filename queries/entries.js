@@ -11,8 +11,17 @@ const getAllEntries = async () => {
   
   const getEntry = async (id) => {
     try {
-      const oneEntry = await db.one("SELECT * FROM entries WHERE id=$1", id);
+      const oneEntry = await db.one("SELECT * FROM entries WHERE user_id=$1", id);
       return oneEntry;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  const getEntriesById = async (id) => {
+    try {
+      const entriesById = await db.any("SELECT * FROM entries WHERE user_id=$1", id);
+      return entriesById;
     } catch (error) {
       return error;
     }
@@ -71,4 +80,5 @@ const getAllEntries = async () => {
     newEntry,
     deleteEntry,
     updateEntry,
+    getEntriesById
   };

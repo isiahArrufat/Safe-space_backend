@@ -17,24 +17,23 @@ CREATE TABLE users (
 CREATE TABLE entries (
     id SERIAL PRIMARY KEY, 
     body TEXT, 
-    user_id INTEGER,
+    user_id INTEGER REFERENCES users (id),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    mood VARCHAR(50), 
+    title VARCHAR(255),
+    mood VARCHAR(255), 
     publish BOOLEAN
 );
 
 CREATE TABLE comments (
     id SERIAL PRIMARY KEY, 
     body TEXT,
-    user_id INTEGER,
-    entry_id INTEGER,
-    is_approved BOOLEAN,
+    user_id INTEGER REFERENCES users (id),
+    entry_id INTEGER REFERENCES entries (id) ON DELETE CASCADE,
+    is_approved BOOLEAN DEFAULT false,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
-ALTER TABLE entries ADD CONSTRAINT fk_entries_user_id FOREIGN KEY (user_id) REFERENCES users(id);
-ALTER TABLE comments ADD CONSTRAINT fk_comments_user_id FOREIGN KEY (user_id) REFERENCES users(id);
-ALTER TABLE comments ADD CONSTRAINT fk_comments_entry_id FOREIGN KEY (entry_id) REFERENCES entries(id);
+
 
