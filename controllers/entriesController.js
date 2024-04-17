@@ -25,6 +25,7 @@ entries.get('/', async (req, res) => {
 entries.get('/:id', async (req, res) =>{
     try {
         const { id } = req.params;
+        console.log("controller", id)
         const entry = await getEntriesById(id);
         if (entry) {
             res.json(entry);
