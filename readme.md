@@ -47,6 +47,10 @@ For any inquiries or feedback, you can reach out to the project maintainers at i
 
 With SafeSpace, users can embrace the power of journaling in a supportive and inclusive community, where everyone's voice is valued and respected. Start your journaling journey today and experience the benefits of sharing your story in a safe space.
 
+### Link to Frontend:
+http://localhost:3000/login
+
+
 
 
 

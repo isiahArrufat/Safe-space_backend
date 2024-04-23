@@ -17,9 +17,8 @@ const {
   deleteComment,
   updateComment,
   getCommentsByEntryId,
-} = require("../queries/reviews");
+} = require("../queries/comments");
 
-const { getComment } = require('../queries/songs.js');
 
 
 // INDEX

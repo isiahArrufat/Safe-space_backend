@@ -31,6 +31,7 @@ app.use(cookieParser());
 
 app.use("/api/auth", authController);
 app.use("/api/entries", entriesController)
+app.use("/api/:id/comments", commentsController)
 
 // ROUTES
 app.get("/", (_req, res) => {
